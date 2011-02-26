@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  address: MyString
+  side: MyString
+  is_adult: false
+  status: false
+
+two:
+  name: MyString
+  address: MyString
+  side: MyString
+  is_adult: false
+  status: false

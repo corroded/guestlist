@@ -1,4 +1,6 @@
 Guestlist::Application.routes.draw do
+  resources :groups
+
   resources :guests
 
   # The priority is based upon order of creation:

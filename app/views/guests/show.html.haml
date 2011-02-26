@@ -1,0 +1,24 @@
+- title "Guest"
+
+%p
+  %strong Name:
+  = @guest.name
+%p
+  %strong Address:
+  = @guest.address
+%p
+  %strong Side:
+  = @guest.side
+%p
+  %strong Is Adult:
+  = @guest.is_adult
+%p
+  %strong Status:
+  = @guest.status
+
+%p
+  = link_to "Edit", edit_guest_path(@guest)
+  |
+  = link_to "Destroy", @guest, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", guests_path
