@@ -1,0 +1,35 @@
+@import compass/reset
+@import compass/css3
+@import compass/utilities
+@import blueprint/typography
+
+$main-color: #fcec94
+$alt-color: #b0e0e6
+
+body
+  @include blueprint-typography
+  background-color: $alt-color
+  font:
+    family: Verdana, Helvetica, Arial
+    size: 14px
+
+a
+  color: blue
+  img
+    border: none
+
+.clear
+  clear: both
+  height: 0
+  overflow: hidden
+
+#container
+  width: 75%
+  margin: 0 auto
+  background: white
+  padding: 20px 40px
+  border: solid 1px black
+  margin-top: 20px
+
+@import partials/error
+@import partials/tables
