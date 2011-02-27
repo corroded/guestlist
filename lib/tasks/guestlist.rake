@@ -16,7 +16,7 @@ namespace :guestlist do
       puts groups
       
       puts "adding groups #{groups}"
-      guest.group = groups
+      guest.groups = groups
       
       guest.side = row[2]
       guest.is_adult = row[3].eql?("Adult")

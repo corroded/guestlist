@@ -17,12 +17,15 @@
       %li
         = f.label :status
         = f.check_box :status
-      / %li
-      /   %ul
-      /   - Group.all.each do |group|
-      /     %li
-      /       = check_box_tag :group_ids, group.id, @guest.groups.include?(group), :name => 'guest[group_ids][]'
-      /       = label_tag :group_ids, group.name
-    
+      %li
+        = f.label :priority
+        = f.select :priority, "<option value='1'>High</option><option value='2'>Medium</option><option value='3'>Low</option>"
+      %li
+        %ul
+        - Group.all.each do |group|
+          %li
+            = check_box_tag :group_ids, group.id, @guest.groups.include?(group), :name => 'guest[group_ids][]'
+            = label_tag :group_ids, group.name
+
       %li
         = f.submit

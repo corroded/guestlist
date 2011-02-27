@@ -15,12 +15,16 @@
 %p
   %strong Status:
   = @guest.status
+  
+%p
+  %strong Priority:
+  = @guest.priority if @guest.priority
 
-/ - if @guest.groups
-/   
-/   %p
-/     %strong Groups:
-/     = @guest.groups
+- if @guest.groups
+  
+  %p
+    %strong Groups:
+    = @guest.groups.map{ |x| x.name }.join(", ")
 
 %p
   = link_to "Edit", edit_guest_path(@guest)

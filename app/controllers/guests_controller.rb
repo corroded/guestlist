@@ -26,9 +26,7 @@ class GuestsController < ApplicationController
 
   def update
     @guest = Guest.find(params[:id])
-    #params[:guest][:group] ||= []
-    
-    #@guest.attributes = {'group_ids' => []}.merge(params[:guest] || {})
+    @guest.attributes = {'group_ids' => []}.merge(params[:guest] || {})
         
     if @guest.update_attributes(params[:guest])
       redirect_to @guest, :notice  => "Successfully updated guest."
