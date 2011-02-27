@@ -1,5 +1,4 @@
 class Guest < ActiveRecord::Base
-  attr_accessible :name, :address, :side, :is_adult, :status
-  
-  has_and_belongs_to_many :group
+  has_many :memberships, :dependent => :destroy
+  has_many :groups, :through => :memberships
 end

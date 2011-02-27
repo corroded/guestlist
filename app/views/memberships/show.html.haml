@@ -1,0 +1,15 @@
+- title "Membership"
+
+%p
+  %strong Guest:
+  = @membership.guest_id
+%p
+  %strong Group:
+  = @membership.group_id
+
+%p
+  = link_to "Edit", edit_membership_path(@membership)
+  |
+  = link_to "Destroy", @membership, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", memberships_path

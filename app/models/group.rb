@@ -1,5 +1,8 @@
-class Group < ActiveRecord::Base
-  attr_accessible :name
+class Group < ActiveRecord::Base  
+  has_many :memberships, :dependent => :destroy
+  has_many :guests, :through => :memberships
   
-  has_and_belongs_to_many :guest
+  def self.find(group)
+    self.find_by_name(group).guest.collect{ |x| x.name  }
+  end
 end

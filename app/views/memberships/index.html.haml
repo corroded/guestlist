@@ -1,0 +1,15 @@
+- title "Memberships"
+
+%table
+  %tr
+    %th Guest
+    %th Group
+  - for membership in @memberships
+    %tr
+      %td= membership.guest_id
+      %td= membership.group_id
+      %td= link_to 'Show', membership
+      %td= link_to 'Edit', edit_membership_path(membership)
+      %td= link_to 'Destroy', membership, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Membership", new_membership_path

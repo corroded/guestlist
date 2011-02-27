@@ -7,15 +7,17 @@
     %th Side
     %th Is adult
     %th Status
+    / %th Group
+    %th{:colspan => 2} &nbsp;
   - for guest in @guests
-    %tr
+    %tr{:class => cycle("even", "odd")}
       %td= guest.name
       %td= guest.address
       %td= guest.side
       %td= guest.is_adult
       %td= guest.status
-      %td= link_to 'Show', guest
+      / %td= guest.group.collect{ |x| "#{x.name}" }.join(", ") if guest.group
       %td= link_to 'Edit', edit_guest_path(guest)
-      %td= link_to 'Destroy', guest, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Delete', guest, :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "New Guest", new_guest_path

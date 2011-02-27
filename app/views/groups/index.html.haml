@@ -3,10 +3,10 @@
 %table
   %tr
     %th Name
+    %th{:colspan => 2} &nbsp;
   - for group in @groups
-    %tr
+    %tr{:class => cycle("even","odd")}
       %td= group.name
-      %td= link_to 'Show', group
       %td= link_to 'Edit', edit_group_path(group)
       %td= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete
 

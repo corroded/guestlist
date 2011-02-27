@@ -1,0 +1,12 @@
+= form_for @membership do |f|
+  = f.error_messages
+  %p
+    = f.label :guest_id
+    %br
+    = f.text_field :guest_id
+  %p
+    = f.label :group_id
+    %br
+    = f.text_field :group_id
+  %p
+    = f.submit

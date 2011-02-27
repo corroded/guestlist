@@ -16,6 +16,12 @@
   %strong Status:
   = @guest.status
 
+/ - if @guest.groups
+/   
+/   %p
+/     %strong Groups:
+/     = @guest.groups
+
 %p
   = link_to "Edit", edit_guest_path(@guest)
   |
