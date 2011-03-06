@@ -373,3 +373,51 @@ table td {
   border-bottom: 0;
   border-right: 0;
 }
+
+/* line 25, ../../../app/stylesheets/partials/_tables.sass */
+table.tablesorter {
+  font-family: arial;
+  background-color: #cdcdcd;
+  margin: 10px 0pt 15px;
+  font-size: 8pt;
+  width: 100%;
+  text-align: left;
+}
+/* line 32, ../../../app/stylesheets/partials/_tables.sass */
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+  background-color: #e6eeee;
+  border: 1px solid white;
+  font-size: 8pt;
+  padding: 4px;
+}
+/* line 37, ../../../app/stylesheets/partials/_tables.sass */
+table.tablesorter thead tr .header {
+  background-image: url(/images/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
+}
+/* line 43, ../../../app/stylesheets/partials/_tables.sass */
+table.tablesorter tbody td {
+  color: #3d3d3d;
+  padding: 4px;
+  background-color: white;
+  vertical-align: top;
+}
+/* line 48, ../../../app/stylesheets/partials/_tables.sass */
+table.tablesorter tbody tr.odd td {
+  background-color: #f0f0f6;
+}
+/* line 51, ../../../app/stylesheets/partials/_tables.sass */
+table.tablesorter thead tr .headerSortUp {
+  background-image: url(/images/asc.gif);
+}
+/* line 53, ../../../app/stylesheets/partials/_tables.sass */
+table.tablesorter thead tr .headerSortDown {
+  background-image: url(/images/desc.gif);
+  background-color: #8dbdd8;
+}
+/* line 56, ../../../app/stylesheets/partials/_tables.sass */
+table.tablesorter thead tr .headerSortUp {
+  background-color: #8dbdd8;
+}

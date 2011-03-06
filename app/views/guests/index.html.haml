@@ -1,25 +1,38 @@
 - title "Guests"
 
-%table
-  %tr
-    %th Name
-    %th Address
-    %th Side
-    %th Is adult
-    %th Status
-    %th Priority
-    %th Groups
-    %th{:colspan => 2} &nbsp;
-  - for guest in @guests
-    %tr{:class => cycle("even", "odd")}
-      %td= guest.name
-      %td= guest.address
-      %td= guest.side
-      %td= guest.is_adult
-      %td= guest.status
-      %td= guest.priority
-      %td= guest.groups.collect{ |x| "#{x.name}" }.join(", ") if guest.groups
-      %td= link_to 'Edit', edit_guest_path(guest)
-      %td= link_to 'Delete', guest, :confirm => 'Are you sure?', :method => :delete
+%h2 Statistics:
+
+%ul
+  %li= "High Priority Count: #{Guest.find_all_by_priority(1).count}"
+  %li= "Medium Priority Count: #{Guest.find_all_by_priority(2).count}"
+  %li= "Low Priority Count: #{Guest.find_all_by_priority(3).count}"
+  %li= "Family Count: #{Group.show_all('Family').count}"
+  %li= "Friend Count: #{Group.show_all('Friends').count}"
+  %li= "Children Count: #{Guest.find_all_by_is_adult(false).count}"
+    
+
+%table.tablesorter
+  %thead
+    %tr
+      %th Name
+      %th Address
+      %th Side
+      %th Is adult
+      %th Status
+      %th Priority
+      %th Groups
+      %th{:colspan => 2} &nbsp;
+  %tbody
+    - for guest in @guests
+      %tr
+        %td= guest.name
+        %td= guest.address
+        %td= guest.side
+        %td= guest.is_adult
+        %td= guest.status
+        %td= guest.priority
+        %td= guest.groups.collect{ |x| "#{x.name}" }.join(", ") if guest.groups
+        %td= link_to 'Edit', edit_guest_path(guest)
+        %td= link_to 'Delete', guest, :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "New Guest", new_guest_path
