@@ -29,7 +29,7 @@ class GuestsController < ApplicationController
     @guest.attributes = {'group_ids' => []}.merge(params[:guest] || {})
         
     if @guest.update_attributes(params[:guest])
-      redirect_to @guest, :notice  => "Successfully updated guest."
+      redirect_to guests_url, :notice  => "Successfully updated guest."
     else
       render :action => 'edit'
     end
