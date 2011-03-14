@@ -14,6 +14,7 @@
 %table.tablesorter
   %thead
     %tr
+      %th &nbsp;
       %th Name
       %th Address
       %th Side
@@ -23,8 +24,9 @@
       %th Groups
       %th{:colspan => 2} &nbsp;
   %tbody
-    - for guest in @guests
+    - @guests.each_with_index do |guest, index|
       %tr
+        %td= index
         %td= guest.name
         %td= guest.address
         %td= guest.side
