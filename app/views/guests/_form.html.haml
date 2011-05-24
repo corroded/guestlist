@@ -21,6 +21,12 @@
         = f.label :priority
         = f.select :priority, "<option value='1'>High</option><option value='2'>Medium</option><option value='3'>Low</option>"
       %li
+        = f.label :accomodation, "Needs Accommodation?"
+        = f.check_box :accomodation
+      %li
+        = f.label :transportation, "Needs Transportation?"
+        = f.check_box :transportation
+      %li
         %ul
         - Group.all.each do |group|
           %li
