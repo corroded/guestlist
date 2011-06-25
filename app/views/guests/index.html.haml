@@ -22,6 +22,7 @@
       %th Status
       %th Priority
       %th Groups
+      %th Sent STD
       %th{:colspan => 2} &nbsp;
   %tbody
     - @guests.each_with_index do |guest, index|
@@ -34,6 +35,7 @@
         %td= guest.status
         %td= guest.priority
         %td= guest.groups.collect{ |x| "#{x.name}" }.join(", ") if guest.groups
+        %td{:class => guest.sent_std.to_s }= guest.sent_std
         %td= link_to 'Edit', edit_guest_path(guest)
         %td= link_to 'Delete', guest, :confirm => 'Are you sure?', :method => :delete
 

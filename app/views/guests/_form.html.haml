@@ -27,6 +27,12 @@
         = f.label :transportation, "Needs Transportation?"
         = f.check_box :transportation
       %li
+        = f.label :sent_std, "Was sent STD?"
+        = f.check_box :sent_std
+      %li
+        = f.label :sent_invitation, "Was sent invitation?"
+        = f.check_box :sent_invitation
+      %li
         %ul
         - Group.all.each do |group|
           %li
