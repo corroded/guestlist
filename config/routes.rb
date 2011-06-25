@@ -3,7 +3,11 @@ Guestlist::Application.routes.draw do
 
   resources :groups
 
-  resources :guests
+  resources :guests do
+    collection do
+      get 'sponsors', :as => :sponsors
+    end
+  end
 
   root :to => "guests#index"
 

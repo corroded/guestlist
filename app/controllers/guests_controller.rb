@@ -35,6 +35,9 @@ class GuestsController < ApplicationController
     end
   end
   
+  def sponsors
+    @guests = Guest.sponsors
+  end
 
   def destroy
     @guest = Guest.find(params[:id])

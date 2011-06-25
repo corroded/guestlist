@@ -33,6 +33,12 @@
         = f.label :sent_invitation, "Was sent invitation?"
         = f.check_box :sent_invitation
       %li
+        = f.label :is_sponsor, "Is a sponsor?"
+        = f.check_box :is_sponsor
+      %li
+        = f.label :sponsor_type, "Sponsor Type"
+        = f.select(:sponsor_type, options_for_select(["Principal", "Veil", "Candle", "Cord", "Flower Girl", "Groomsman", "Bridesmaid", "Bearer"], :selected => @guest.sponsor_type ? @guest.sponsor_type : nil), :prompt => "Select a type")
+      %li
         %ul
         - Group.all.each do |group|
           %li

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529174001) do
+ActiveRecord::Schema.define(:version => 20110625104827) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20110529174001) do
     t.boolean  "transportation",  :default => false
     t.boolean  "sent_std",        :default => false
     t.boolean  "sent_invitation", :default => false
+    t.boolean  "is_sponsor",      :default => false
+    t.string   "sponsor_type"
   end
 
   create_table "memberships", :force => true do |t|
