@@ -20,6 +20,10 @@ class GuestsController < ApplicationController
     end
   end
 
+  def priority
+    @guests = Guest.find_all_by_priority(params[:id])
+  end
+
   def edit
     @guest = Guest.find(params[:id])
   end
@@ -27,14 +31,14 @@ class GuestsController < ApplicationController
   def update
     @guest = Guest.find(params[:id])
     @guest.attributes = {'group_ids' => []}.merge(params[:guest] || {})
-        
+
     if @guest.update_attributes(params[:guest])
       redirect_to guests_url, :notice  => "Successfully updated guest."
     else
       render :action => 'edit'
     end
   end
-  
+
   def sponsors
     @guests = Guest.sponsors
   end

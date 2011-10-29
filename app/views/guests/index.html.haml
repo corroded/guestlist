@@ -3,42 +3,16 @@
 %h2 Statistics:
 
 %ul
-  %li= "High Priority Count: #{Guest.find_all_by_priority(1).count}"
-  %li= "Medium Priority Count: #{Guest.find_all_by_priority(2).count}"
-  %li= "Low Priority Count: #{Guest.find_all_by_priority(3).count}"
-  %li= "Family Count: #{Group.show_all('Family').count}"
-  %li= "Friend Count: #{Group.show_all('Friends').count}"
-  %li= "Children Count: #{Guest.find_all_by_is_adult(false).count}"
-    
-%p
-  = link_to "Sponsors", sponsors_guests_path
+  %li= link_to "High Priority Count: #{Guest.find_all_by_priority(1).size}", priority_path(1)
+  %li= link_to "Medium Priority Count: #{Guest.find_all_by_priority(2).size}", priority_path(2)
+  %li= link_to "Low Priority Count: #{Guest.find_all_by_priority(3).size}", priority_path(3)
+  %li= "Family Count: #{Group.show_all('Family').size}"
+  %li= "Friend Count: #{Group.show_all('Friends').size}"
+  %li= "Children Count: #{Guest.find_all_by_is_adult(false).size}"
+  %li= "Total Count(ALL) #{@guests.size}"
 
-%table.tablesorter
-  %thead
-    %tr
-      %th &nbsp;
-      %th Name
-      %th Address
-      %th Side
-      %th Is adult
-      %th Status
-      %th Priority
-      %th Groups
-      %th Sent STD
-      %th{:colspan => 2} &nbsp;
-  %tbody
-    - @guests.each_with_index do |guest, index|
-      %tr
-        %td= index
-        %td= guest.name
-        %td= guest.address
-        %td= guest.side
-        %td= guest.is_adult
-        %td= guest.status
-        %td= guest.priority
-        %td= guest.groups.collect{ |x| "#{x.name}" }.join(", ") if guest.groups
-        %td{:class => guest.sent_std.to_s }= guest.sent_std
-        %td= link_to 'Edit', edit_guest_path(guest)
-        %td= link_to 'Delete', guest, :confirm => 'Are you sure?', :method => :delete
+%p= link_to "Sponsors", sponsors_guests_path
+
+= render :partial => "list", :locals => {:guests => @guests}
 
 %p= link_to "New Guest", new_guest_path

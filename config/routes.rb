@@ -1,4 +1,7 @@
 Guestlist::Application.routes.draw do
+
+  match 'guests/priority/:id', :to => "guests#priority",:as => :priority
+
   resources :memberships
 
   resources :groups
